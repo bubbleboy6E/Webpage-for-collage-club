@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>College Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 0;
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            background-color: #0077b6;
+            color: #fff;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        select {
+            height: 40px;
+        }
+        textarea {
+            height: 100px;
+        }
+        input[type="submit"] {
+            background-color: #0077b6;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #005f8b;
+        }
+        .form-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            padding: 10px;
+            text-align: center;
+            background-color: #005f8b;
+            color: #fff;
+            border-radius: 5px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>College Registration Form</h1>
+    <form action="Jdbc.jsp" method="post" id="registrationForm" onsubmit="showPopup(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="rollNo">Roll No:</label>
+        <input type="text" id="rollNo" name="rollNo" required>
+
+        <label for="department">Activities</label>
+        <select id="activities" name="activities" required>
+            <option value="">Coding</option>
+            <option value="Dout session">Dout session</option>
+            <option value="Tips in Time">Tips in Time</option>
+            <option value="quiz">quiz</option>
+            <option value="seminar">seminar</option>
+        </select>
+
+        <label for="anyQueries">Any Queries:</label>
+        <textarea id="anyQueries" name="anyQueries"></textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div class="form-popup" id="successPopup">
+        <p id="successMessage"></p>
+        <span class="close-button" onclick="closePopup()"></span>
+    </div>
+
+    <script>
+        function showPopup(event) {
+            event.preventDefault();
+
+            var fullName = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var rollNo = document.getElementById("rollNo").value;
+            var activities = document.getElementById("activities").value;
+            var anyQueries = document.getElementById("anyQueries").value;
+
+            if (fullName && email && rollNo && activities) {
+                var successMessage = document.getElementById("successMessage");
+                successMessage.innerHTML = "Signup Successful";
+
+                var popup = document.getElementById("successPopup");
+                popup.style.display = "block";
+
+                setTimeout(function () {
+                    document.getElementById("registrationForm").reset();
+                    popup.style.display = "none";
+                    window.location.href = "index.html";
+                }, 2000); // Redirect after 2 seconds
+            }
+        }
+
+        function closePopup() {
+            var popup = document.getElementById("successPopup");
+            popup.style.display = "none";
+        }
+    </script>
+</body>
+</html>
