@@ -1,0 +1,24 @@
+## Webpage for collage club 
+ webpage for Collage club which has an user friendly interface with multipile options and features  by using  Html ,Css and backend connection with yogsql and JDBC noticed CLUB OF AIML
+## Features
+- index page contains info about the club,staff,hod,social media 
+- included with registration form and a contact form.
+- Display of activites and show case of events.
+## Requirements
+- HTML
+- CSS
+- YOGSQL
+- JDBC
+- NETBEANS
+## Usage
+1. Clone the repository to your local machine. by (``)
+2. install the tools yogsql ND NETBEANS.
+3. Use notepad or netbeans to Run
+## Code Explanation
+The following is a brief explanation of the code:
+
+## Credits
+
+This webpage  was created by @bubbleboy6e as part of internship project  @DLK technologies
+Made By
+@bubbleboy6e
